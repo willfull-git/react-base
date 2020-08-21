@@ -1,0 +1,26 @@
+{
+  "name": "react-base",
+  "version": "1.0.0",
+  "description": "Custom boilerplate for react development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willfull-git/react-base.git"
+  },
+  "keywords": [
+    "react",
+    "boilerplate"
+  ],
+  "author": "willfull",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willfull-git/react-base/issues"
+  },
+  "homepage": "https://github.com/willfull-git/react-base#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

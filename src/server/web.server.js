@@ -13,13 +13,20 @@ export default class WebServer {
 					resolve();
 				})
 			} catch(e) {
-				console.error(e);
+				console.error(e.message);
 				reject(e);
 			}
 		})
 	}	
 
 	stop(){
-
+		return new Promise((resolve, reject)=>{
+			try {
+				resolve();
+			} catch(e) {
+				console.error(e);
+				reject(e.message);
+			}
+		});
 	}
 }

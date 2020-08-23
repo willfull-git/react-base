@@ -7,7 +7,7 @@ export default class WebServer {
 	}
 
 	start(){
-		return new Promise((resolve, reject){
+		return new Promise((resolve, reject)=>{
 			try {
 				this.server = this.app.listen(3000, function(){
 					resolve();

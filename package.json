@@ -24,10 +24,13 @@
   },
   "homepage": "https://github.com/willfull-git/react-base#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
   }
 }

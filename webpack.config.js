@@ -1,5 +1,6 @@
-const path      = require('path');
-const nodeExtrn = require('webpack-node-externals');
+const path       = require('path');
+const nodeExtrn  = require('webpack-node-externals');
+const pluginHtml = require('html-webpack-plugin');
 
 const moduleObj = {
   rules: [
@@ -12,20 +13,31 @@ const moduleObj = {
 }
 
 const client = {
+  mode: 'development',
   entry: {
-    client: path.join(__dirname, '/src/client/index.js')
+    client: path.join(__dirname, 'src/client/index.js')
   },
   target: 'web',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/public')
   },
-  module: moduleObj
+  module: moduleObj,
+  plugins: [
+    new pluginHtml({
+      template: 'src/client/index.html'
+    })
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist/public'),
+    publicPath: '/dist/'
+  }
 }
 
 const server = {
+  mode: 'development',
   entry: {
-    server: path.join(__dirname, '/src/server/index.js')
+    server: path.join(__dirname, 'src/server/index.js')
   },
   target: 'node',
   output: {

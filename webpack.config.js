@@ -1,31 +1,29 @@
-const path       = require('path');
-const nodeExtrn  = require('webpack-node-externals');
-const pluginHtml = require('html-webpack-plugin');
+const
+  path       = require('path'),
+  pluginHtml = require('html-webpack-plugin');
 
-const moduleObj = {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loaders: ["babel-loader"]
-    }
-  ]
-}
-
-const client = {
+const config = {
   mode: 'development',
   entry: {
-    client: path.join(__dirname, 'src/client/index.js')
+    main: path.join(__dirname, 'src/index.js')
   },
   target: 'web',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/public')
   },
-  module: moduleObj,
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ["babel-loader"]
+      }
+    ]
+  },
   plugins: [
     new pluginHtml({
-      template: 'src/client/index.html'
+      template: 'src/index.html'
     })
   ],
   devServer: {
@@ -34,18 +32,4 @@ const client = {
   }
 }
 
-const server = {
-  mode: 'development',
-  entry: {
-    server: path.join(__dirname, 'src/server/index.js')
-  },
-  target: 'node',
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  module: moduleObj,
-  externals: [nodeExtrn()]
-}
-
-module.exports = [client, server];
+module.exports = config;

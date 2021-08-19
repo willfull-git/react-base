@@ -17,7 +17,22 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"]
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[base]"
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -27,8 +42,8 @@ const config = {
     })
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist/public'),
-    publicPath: '/dist/'
+    // contentBase: path.join(__dirname, 'dist/public'),
+    // publicPath: '/dist/'
   }
 }
 

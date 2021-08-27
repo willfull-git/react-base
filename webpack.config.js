@@ -28,7 +28,7 @@ const config = {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: "[base]"
+                localIdentName: "[name]_[locale]"
               }
             }
           }
